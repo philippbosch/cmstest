@@ -1,0 +1,12 @@
+*.pyc
+secret.txt
+*.sock
+*.pid
+local_settings.py
+settings_local.py
+.DS_Store
+*~
+searchindex
+*.tmproj
+.sass-cache
+media/static/css/*.css

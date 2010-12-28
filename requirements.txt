@@ -1,0 +1,11 @@
+Django
+MySQL-python
+South
+PIL
+BeautifulSoup
+Fabric
+django-cms==2.1.0.beta3
+django-tinymce
+-e git+https://github.com/SmileyChris/easy-thumbnails.git#egg=easy_thumbnails
+-e git+http://github.com/philippbosch/django-orienteer.git#egg=orienteer
+-e git+http://github.com/mintchaos/django_compressor.git#egg=django_compressor

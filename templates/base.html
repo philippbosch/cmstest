@@ -1,0 +1,44 @@
+{% load compress orienteer i18n cms_tags placeholder_tags menu_tags cache %}<!doctype html>
+<html lang="{{ LANGUAGE_CODE }}" class="no-js">
+
+<head>
+    <meta charset="utf-8">
+    <title>{% block site_name %}SITE NAME<!-- TODO -->{% endblock %}{% if not current_page.is_home %} – {% block page_title %}{% page_attribute page_title %}{% endblock %}{% endif %}</title>
+    {% compress css %}
+        {% compass "screen" "screen, projection" %}
+    {% endcompress %}
+    <!--[if IE]><link href="{{ MEDIA_URL }}static/css/ie.css" media="screen, projection" rel="stylesheet" type="text/css"><![endif]-->
+    {% compress css %}
+    <link href="{{ MEDIA_URL}}static/css/print.css" media="print" rel="stylesheet" type="text/css">
+    {% endcompress %}
+    <link rel="icon" href="{{ MEDIA_URL }}static/favicon.ico" type="image/vnd.microsoft.icon">
+    <link rel="shortcut icon" href="{{ MEDIA_URL }}static/favicon.ico" type="image/vnd.microsoft.icon">
+</head>
+
+<body>
+    {% block body %}
+    <div id="wrapper">
+        <div id="header">
+            {% block header %}
+                <h1>SITE NAME<!-- TODO --></h1>
+            {% endblock %}
+        </div>
+        {% block main %}
+        <div id="content">
+            {% block content %}
+                <h1>{% page_attribute title %}</h1>
+                {% placeholder "content" %}
+            {% endblock %}
+        </div>
+        {% endblock %}
+        <div id="footer">
+        </div>
+    </div>
+    {% endblock %}
+    {% compress js %}
+        <script type="text/javascript" src="{{ MEDIA_URL }}static/js/lib/modernizr.js"></script>
+        <script type="text/javascript" src="{{ MEDIA_URL }}static/js/lib/jquery.js"></script>
+    {% endcompress %}
+</body>
+
+</html>
